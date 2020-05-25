@@ -39,7 +39,7 @@ void Server::readyRead() // обработчик входящих сообщен
 {
     qDebug() << "[1]";
     QByteArray arr =  firstSocket->readAll();
-    foreach(QTcpSocket *socket, sockets) { // пишем входящие данные от "вещающего" получателям
+    foreach(QTcpSocket *socket, sockets) {
         if (socket->state() == QTcpSocket::ConnectedState)
             socket->write(arr);
     }
